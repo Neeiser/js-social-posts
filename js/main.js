@@ -218,10 +218,10 @@ for (i = 0; i < postsObjArr.length; i++) {
         
         if(buttonToggleStatus == true) {
             likesCounterNum = likesCounterNum-1;
-
+            postLikesCounter.innerHTML =' Piace a ' + `<b>`+ likesCounterNum + `</b>` + ' persone.'
         } else {
             likesCounterNum = likesCounterNum+1;
-
+            postLikesCounter.innerHTML =' Piace a ' + `<b>`+ likesCounterNum + `</b>` + ' persone.'
         }
         console.log(likesCounterNum)
     });
@@ -259,3 +259,22 @@ for (i = 0; i < postsObjArr.length; i++) {
     postLikesCounter.innerHTML =' Piace a ' + `<b>${postsObjArr[i].likes}</b>` + ' persone.'
 
 }
+
+
+/* ---------------- DATE CHANGER -------------------- */
+
+const dateConverter = [];
+let dateConverterSpliced = []
+
+for(let i = 0 ; i < postsObjArr.length; i++){
+    dateConverter.push(postsObjArr[i].created);
+}
+
+console.log(dateConverter)
+
+for (let i = 0; i < 5; i++) {
+    dateConverterSpliced.push(dateConverter.splice(0, 1));
+}
+
+
+console.log(dateConverterSpliced)
