@@ -93,44 +93,44 @@ for (i = 0; i < postsObjArr.length; i++) {
    /* --- CONTENITORE HEADER ----------------------------- */
    
     let postHeader = document.createElement('div');
-    post.classList.add('post__header');
+    postHeader.classList.add('post__header');
     post.append(postHeader);
 
      
     /* --- CONTENITORE HEADER.META ------------------------ */
 
     let postMeta = document.createElement('div');
-    postHeader.classList.add('post-meta');
+    postMeta.classList.add('post-meta');
     postHeader.append(postMeta);
 
     /* --- CONTENITORE HEADER.META-ICON -------------------- */
 
     let postMetaIcon = document.createElement('div');
-    postMeta.classList.add('post-meta__icon');
+    postMetaIcon.classList.add('post-meta__icon');
     postMeta.append(postMetaIcon);
 
     /* --- CONTENITORE HEADER.PROFILE-PIC ------------------ */
 
     let profilePic = document.createElement('div');
-    postMetaIcon.classList.add('profile-pic');
+    profilePic.classList.add('profile-pic');
     postMetaIcon.append(profilePic);
 
     profilePic.innerHTML = 
     `
-    <img src= ${posts[i].media}>
+    <img src= ${postsObjArr[i].media}>
     `
 
     /* --- CONTENITORE HEADER.META-DATA -------------------- */
 
     let postMetaData = document.createElement('div');
-    postMeta.classList.add('post-meta__data');
+    postMetaData.classList.add('post-meta__data');
     postMeta.append(postMetaData);
 
     /* --- CONTENITORE HEADER.META-ICON -------------------- */
 
-    let postMetaAutor = document.createElement('div');
+    /* let postMetaAutor = document.createElement('div');
     postMetaData.classList.add('post-meta__author');
     postMetaData.append(postMetaAutor);
-
+ */
 
 }
