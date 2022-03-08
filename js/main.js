@@ -81,8 +81,11 @@ const postsObjArr = [
 */
 
 
-const postsList = document.querySelector('#posts-list');
+const postsList = document.querySelector('.posts-list');
 
+function loadingPosts(){
+    
+}
 for (i = 0; i < postsObjArr.length; i++) {
 
     /* --- CONTENITORE MADRE ----------------------------- */
@@ -111,13 +114,13 @@ for (i = 0; i < postsObjArr.length; i++) {
 
     /* --- CONTENITORE HEADER.PROFILE-PIC ------------------ */
 
-    let profilePic = document.createElement('div');
+    let profilePic = document.createElement('img');
     profilePic.classList.add('profile-pic');
     postMetaIcon.append(profilePic);
 
-    profilePic.innerHTML = 
+    profilePic.src = 
     `
-    <img src= ${postsObjArr[i].media}>
+    ${postsObjArr[i].author.image}
     `
 
     /* --- CONTENITORE HEADER.META-DATA -------------------- */
@@ -126,11 +129,88 @@ for (i = 0; i < postsObjArr.length; i++) {
     postMetaData.classList.add('post-meta__data');
     postMeta.append(postMetaData);
 
-    /* --- CONTENITORE HEADER.META-ICON -------------------- */
+    /* --- CONTENITORE HEADER.META-AUTHOR -------------------- */
 
-    /* let postMetaAutor = document.createElement('div');
-    postMetaData.classList.add('post-meta__author');
+    let postMetaAutor = document.createElement('div');
+    postMetaAutor.classList.add('post-meta__author');
     postMetaData.append(postMetaAutor);
- */
 
+    postMetaAutor.innerHTML =  ` ${postsObjArr[i].author.name} `
+
+    /* --- CONTENITORE HEADER.META-TIME -------------------- */
+
+    let postMetaTime = document.createElement('div');
+    postMetaTime.classList.add('post-meta__time');
+    postMetaData.append(postMetaTime);
+
+    postMetaTime.innerHTML =  ` ${postsObjArr[i].created} `
+
+    /* --- CONTENITORE POST-TEXT -------------------- */
+
+    let postText = document.createElement('div');
+    postText.classList.add('post__text');
+    post.append(postText);
+
+    postText.innerHTML =  ` ${postsObjArr[i].content} `
+
+    /* --- CONTENITORE POST-IMAGE -------------------- */
+
+    let postImage = document.createElement('div');
+    postImage.classList.add('post__image');
+    post.append(postImage);
+
+    postImage.innerHTML =
+    `
+    <img src= ${postsObjArr[i].media}>
+    `
+
+    /* --- CONTENITORE FOOTER -------------------- */
+
+    let postFooter = document.createElement('div');
+    postFooter.classList.add('post__footer');
+    post.append(postFooter);
+
+    /* --- CONTENITORE FOOTER.LIKES -------------------- */
+
+    let postLikes = document.createElement('div');
+    postLikes.classList.add('likes', 'js-likes');
+    postFooter.append(postLikes);
+
+    /* --- CONTENITORE FOOTER.LIKES-CTA -------------------- */
+
+    let postLikesCta = document.createElement('div');
+    postLikesCta.classList.add('likes__cta');
+    postLikes.append(postLikesCta);
+
+    /* --- CONTENITORE FOOTER.LIKES-BUTTON -------------------- */
+
+    let postLikesButton = document.createElement('a');
+    postLikesButton.classList.add('like-button', 'js-like-button');
+    postLikesCta.append(postLikesButton);
+
+    /* --- CONTENITORE FOOTER.LIKES-BUTTON-ICON -------------------- */
+
+    let postLikesButtonIcon = document.createElement('i');
+    postLikesButtonIcon.classList.add('like-button__icon', 'fas', 'fa-thumbs-up');
+    postLikesButton.append(postLikesButtonIcon);
+
+    /* --- CONTENITORE FOOTER.LIKES-BUTTON-LABEL-------------------- */
+
+    let postLikesButtonLabel = document.createElement('span');
+    postLikesButtonLabel.classList.add('like-button__label');
+    postLikesButton.append(postLikesButtonLabel);
+
+    postLikesButtonLabel.innerHTML =` Mi piace `
+    
+    /* --- CONTENITORE FOOTER.LIKES-COUNTER-------------------- */
+
+    let postLikesCounter = document.createElement('div');
+    postLikesCounter.classList.add('likes__counter');
+    postLikes.append(postLikesCounter);
+
+    // let postLikesCounterNumber = document.createElement('b');
+    // postLikesCounterNumber.classList.add('js-likes-counter');
+    // postLikesCounterNumber.getAttribute('like-counter-1');
+
+    postLikesCounter.innerHTML =' Piace a ' + `${postsObjArr[i].likes}` + ' persone.'
 }
