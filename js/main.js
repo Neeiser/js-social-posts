@@ -55,3 +55,55 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+
+/* 
+
+- Nel file js avete un array di oggetti che rappresentano ciascun post.
+
+- Ogni post contiene le informazioni necessarie per stampare la relativa card:
+    - id del post (numero progressivo da 1 a n),
+    - nome autore,
+    - foto autore,
+    - data in formato americano (mm-gg-yyyy),
+    - testo del post,
+    - immagine (non tutti i post devono avere una immagine),
+    - numero di likes.
+
+- Milestone 1 - Prendendo come riferimento il layout di esempio presente nell'html, 
+                stampiamo i post del nostro feed.
+
+- Milestone 2   - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del 
+                    bottone e incrementiamo il counter dei likes relativo.
+                - Salviamo in un secondo array gli id dei post ai quali abbiamo 
+                    messo il like.
+
+*/
+
+
+const postsList = document.getElementsByClassName('posts-list');
+
+for (i = 0; i < userPost.length; i++) {
+
+    /* --- CONTENITORE MADRE ----------------------------- */
+    let post = document.createElement('div');
+    postsList.classList.add('post');
+    postsList.append(post);
+   
+   /* --- CONTENITORE HEADER ----------------------------- */
+   
+    let postHeader = document.createElement('div');
+    post.classList.add('post__header');
+    post.append(postHeader);
+
+     
+    /* --- CONTENITORE HEADER.META ------------------------ */
+
+    let postMeta = document.createElement('div');
+    postHeader.classList.add('post-meta');
+    postHeader.append(postMeta);
+
+    /* --- CONTENITORE HEADER.META-ICON -------------------- */
+
+
+}
