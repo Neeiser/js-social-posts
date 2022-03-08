@@ -186,17 +186,53 @@ for (i = 0; i < postsObjArr.length; i++) {
     postLikesButton.classList.add('like-button', 'js-like-button');
     postLikesCta.append(postLikesButton);
 
-    
+
+
+
+
+
+
+    /* --- CONTENITORE FOOTER.LIKES-BUTTON: SEZIONE LOGICA -------------------- */
+
     /*Potevo fare l'hover semplicemente con CSS ma essendo che
       non posso toccarlo, faccio tutto con JS*/
     postLikesButton.addEventListener("mouseover", function(){
         this.style.cursor='pointer'
     });
 
+    //Stato del bottone per incrementare o decrementare like
+    let buttonToggleStatus = true;
+
+    let likesCounterNum = postsObjArr[i].likes;
+    
+    
     postLikesButton.addEventListener("click", function(){
-        postLikesButton.classList.toggle('like-button--liked');
-        console.log('ciao');
+
+        //Colore verde al click
+        postLikesButton.classList.toggle('like-button--liked'); 
+        
+        
+        buttonToggleStatus = !buttonToggleStatus;
+        
+        console.log(buttonToggleStatus);
+        
+        if(buttonToggleStatus == true) {
+            likesCounterNum = likesCounterNum-1;
+
+        } else {
+            likesCounterNum = likesCounterNum+1;
+
+        }
+        console.log(likesCounterNum)
     });
+
+
+
+
+
+
+
+
 
     /* --- CONTENITORE FOOTER.LIKES-BUTTON-ICON -------------------- */
 
@@ -213,12 +249,11 @@ for (i = 0; i < postsObjArr.length; i++) {
     postLikesButtonLabel.innerHTML =` Mi piace `
     
     /* --- CONTENITORE FOOTER.LIKES-COUNTER-------------------- */
-
+    
     let postLikesCounter = document.createElement('div');
     postLikesCounter.classList.add('likes__counter');
     postLikes.append(postLikesCounter);
-
-    let postLikesCounterNumber = document.createElement('b');
+    
     
 
     postLikesCounter.innerHTML =' Piace a ' + `<b>${postsObjArr[i].likes}</b>` + ' persone.'
