@@ -84,8 +84,6 @@ const postsObjArr = [
 const postsList = document.querySelector('.posts-list');
 
 
-
-
 for (i = 0; i < postsObjArr.length; i++) {
 
     /* --- CONTENITORE MADRE ----------------------------- */
@@ -188,6 +186,18 @@ for (i = 0; i < postsObjArr.length; i++) {
     postLikesButton.classList.add('like-button', 'js-like-button');
     postLikesCta.append(postLikesButton);
 
+    
+    /*Potevo fare l'hover semplicemente con CSS ma essendo che
+      non posso toccarlo, faccio tutto con JS*/
+    postLikesButton.addEventListener("mouseover", function(){
+        this.style.cursor='pointer'
+    });
+
+    postLikesButton.addEventListener("click", function(){
+        postLikesButton.classList.toggle('like-button--liked');
+        console.log('ciao');
+    });
+
     /* --- CONTENITORE FOOTER.LIKES-BUTTON-ICON -------------------- */
 
     let postLikesButtonIcon = document.createElement('i');
@@ -208,10 +218,9 @@ for (i = 0; i < postsObjArr.length; i++) {
     postLikesCounter.classList.add('likes__counter');
     postLikes.append(postLikesCounter);
 
-    // let postLikesCounterNumber = document.createElement('b');
-    // postLikesCounterNumber.classList.add('js-likes-counter');
-    // postLikesCounterNumber.getAttribute('like-counter-1');
+    let postLikesCounterNumber = document.createElement('b');
+    
 
-    postLikesCounter.innerHTML =' Piace a ' + `${postsObjArr[i].likes}` + ' persone.'
+    postLikesCounter.innerHTML =' Piace a ' + `<b>${postsObjArr[i].likes}</b>` + ' persone.'
 
 }
