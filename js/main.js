@@ -83,9 +83,9 @@ const postsObjArr = [
 
 const postsList = document.querySelector('.posts-list');
 
-function loadingPosts(){
-    
-}
+
+
+
 for (i = 0; i < postsObjArr.length; i++) {
 
     /* --- CONTENITORE MADRE ----------------------------- */
@@ -213,5 +213,5 @@ for (i = 0; i < postsObjArr.length; i++) {
     // postLikesCounterNumber.getAttribute('like-counter-1');
 
     postLikesCounter.innerHTML =' Piace a ' + `${postsObjArr[i].likes}` + ' persone.'
-    
+
 }
