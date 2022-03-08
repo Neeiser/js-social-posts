@@ -1,4 +1,4 @@
-const posts = [
+const postsObjArr = [
     {
         "id": 1,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
@@ -81,13 +81,13 @@ const posts = [
 */
 
 
-const postsList = document.getElementsByClassName('posts-list');
+const postsList = document.querySelector('#posts-list');
 
-for (i = 0; i < userPost.length; i++) {
+for (i = 0; i < postsObjArr.length; i++) {
 
     /* --- CONTENITORE MADRE ----------------------------- */
     let post = document.createElement('div');
-    postsList.classList.add('post');
+    post.classList.add('post');
     postsList.append(post);
    
    /* --- CONTENITORE HEADER ----------------------------- */
@@ -104,6 +104,33 @@ for (i = 0; i < userPost.length; i++) {
     postHeader.append(postMeta);
 
     /* --- CONTENITORE HEADER.META-ICON -------------------- */
+
+    let postMetaIcon = document.createElement('div');
+    postMeta.classList.add('post-meta__icon');
+    postMeta.append(postMetaIcon);
+
+    /* --- CONTENITORE HEADER.PROFILE-PIC ------------------ */
+
+    let profilePic = document.createElement('div');
+    postMetaIcon.classList.add('profile-pic');
+    postMetaIcon.append(profilePic);
+
+    profilePic.innerHTML = 
+    `
+    <img src= ${posts[i].media}>
+    `
+
+    /* --- CONTENITORE HEADER.META-DATA -------------------- */
+
+    let postMetaData = document.createElement('div');
+    postMeta.classList.add('post-meta__data');
+    postMeta.append(postMetaData);
+
+    /* --- CONTENITORE HEADER.META-ICON -------------------- */
+
+    let postMetaAutor = document.createElement('div');
+    postMetaData.classList.add('post-meta__author');
+    postMetaData.append(postMetaAutor);
 
 
 }
